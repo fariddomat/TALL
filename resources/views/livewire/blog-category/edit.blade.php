@@ -5,7 +5,7 @@
         </div>
     @endif
 
-    <form wire:submit.prevent="updateCategory" class="space-y-4">
+    <form wire:submit.prevent="updateCategory"  class="bg-white p-6 rounded-lg shadow-md">
         <!-- Name -->
         <div>
             <label for="name" class="block text-sm font-medium text-gray-700">Category Name</label>

@@ -42,11 +42,11 @@
                     <i class="fas fa-users"></i> Users
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link href="{{ route('dashboard.blogcategories.index') }}" :active="request()->routeIs('dashboard.users.index')">
+                <x-responsive-nav-link href="{{ route('dashboard.blogcategories.index') }}" :active="request()->routeIs('dashboard.blogcategories.index')">
                     <i class="fas fa-list-alt"></i> Blog Category
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link href="{{ route('dashboard.blogs.index') }}" :active="request()->routeIs('dashboard.users.index')">
+                <x-responsive-nav-link href="{{ route('dashboard.blogs.index') }}" :active="request()->routeIs('dashboard.blogs.index')">
                     <i class="fas fa-newspaper"></i> Blogs
                 </x-responsive-nav-link>
 

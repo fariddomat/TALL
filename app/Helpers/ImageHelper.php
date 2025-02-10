@@ -37,10 +37,10 @@ class ImageHelper
         // Store the processed image in the public directory
         // dd($processedImage);
         $filename = time() . '.' . $image->getClientOriginalExtension();
-        Storage::disk('local')->put($path . '/' . $filename,
+        Storage::disk('public')->put($path . '/' . $filename,
             $processedImage->encodeByExtension($image->getClientOriginalExtension(), quality: 80)
         );
-        // Storage::disk('local')->put($path . '/' . $filename, $processedImage);
+        // Storage::disk('public')->put($path . '/' . $filename, $processedImage);
         return $path . '/' . $filename; // Return the full path with name
 
         }
@@ -52,7 +52,7 @@ class ImageHelper
     function removeImageInPublicDirectory($image)
     {
         try {
-            Storage::disk('local')->delete($image);
+            Storage::disk('public')->delete($image);
         } catch (\Throwable $th) {
             //throw $th;
         }

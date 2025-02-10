@@ -1,5 +1,5 @@
 <div>
-    <form wire:submit.prevent="store">
+    <form wire:submit.prevent="store"  class="bg-white p-6 rounded-lg shadow-md">
         <div class="p-4">
             <div>
                 <label for="title">Title</label>
