@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" livewire:navigate>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}" livewire:navigate>
 
 <head>
     <meta charset="utf-8">
@@ -17,9 +17,32 @@
     <link rel="stylesheet" href="{{ asset('noty/noty.css') }}">
     <script src="{{ asset('noty/noty.min.js') }}" defer></script>
 
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
+    <style>
+        @media (min-width: 768px){
+        html[dir="rtl"] aside{
+            left: unset !important;
+        }
+        html[dir="ltr"] .main-b{
+            margin-left: 16rem !important;
+            margin-right: 0 !important;
+        }
+        html[dir="rtl"] .main-b{
+            margin-left: 0 !important;
+            margin-right: 16rem !important;
+        }
+        }
+
+        html[dir="rtl"] .main-b{
+            margin-left: 0 !important;
+            margin-right: -16rem !important;
+        }
+        html[dir="rtl"] .-translate-x-64 {
+            --tw-translate-x: +16rem;}
+    </style>
 </head>
 
 <body class="bg-gray-100">
@@ -56,7 +79,7 @@
             </nav>
         </aside>
 
-        <div class="flex-1 flex flex-col -ml-64 md:ml-64">
+        <div class="container main-b flex-1 flex flex-col -ml-64 md:ml-64">
 
             <!-- Navbar -->
             <header class="bg-white shadow p-4 flex justify-between items-center">
