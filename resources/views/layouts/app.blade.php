@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}" livewire:navigate>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}"
+    livewire:navigate>
 
 <head>
     <meta charset="utf-8">
@@ -22,39 +23,46 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
     <style>
-        @media (min-width: 768px){
-        html[dir="rtl"] aside{
-            left: unset !important;
-        }
-        html[dir="ltr"] .main-b{
-            margin-left: 16rem !important;
-            margin-right: 0 !important;
-        }
-        html[dir="rtl"] .main-b{
-            margin-left: 0 !important;
-            margin-right: 16rem !important;
-        }
+        @media (max-width: 768px) {
+            html[dir="rtl"] .main-b {
+                margin-left: 0 !important;
+                margin-right: -16rem !important;
+            }
+
+            html[dir="rtl"] .-translate-x-64 {
+                --tw-translate-x: +16rem;
+            }
+
         }
 
-        html[dir="rtl"] .main-b{
-            margin-left: 0 !important;
-            margin-right: -16rem !important;
+        @media (min-width: 768px) {
+            html[dir="rtl"] aside {
+                left: unset !important;
+            }
+
+            html[dir="ltr"] .main-b {
+                margin-left: 16rem !important;
+                margin-right: 0 !important;
+            }
+
+            html[dir="rtl"] .main-b {
+                margin-left: 0 !important;
+                margin-right: 16rem !important;
+            }
         }
-        html[dir="rtl"] .-translate-x-64 {
-            --tw-translate-x: +16rem;}
     </style>
 </head>
 
 <body class="bg-gray-100">
 
-    <div class="flex h-screen" x-data="{ open: false }">
+    <div class="flex h-screen  overflow-hidden" x-data="{ open: false }">
         <!-- Sidebar Overlay (Mobile) -->
         <div class="fixed inset-0 z-40 bg-black bg-opacity-50 md:hidden" x-show="open" @click="open = false"></div>
 
         <!-- Sidebar -->
         <aside
-    class="bg-gray-900 text-white p-5 w-64 md:w-64 md:fixed md:top-0 md:left-0 md:h-screen transition-all duration-300 ease-in-out z-50 overflow-y-auto"
-    :class="open ? 'translate-x-0' : '-translate-x-64 md:translate-x-0'">
+            class="bg-gray-900 text-white p-5 w-64 md:w-64 md:fixed md:top-0 md:left-0 md:h-screen transition-all duration-300 ease-in-out z-50 overflow-y-auto"
+            :class="open ? 'translate-x-0' : '-translate-x-64 md:translate-x-0'">
             <h2 class="text-xl font-bold mb-4">My Dashboard</h2>
 
             <nav class="mt-5 space-y-3 ">
@@ -119,10 +127,10 @@
     @livewireScripts
 
     <!-- Include jQuery library -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Include ajaxForm library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
 
     @extends('layouts._noty')
     <script>
