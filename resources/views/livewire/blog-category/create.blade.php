@@ -23,7 +23,7 @@
         <!-- Submit Button -->
         <div>
             <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded shadow hover:bg-blue-700">
-                Create Category
+                @lang('site.create') Category
             </button>
         </div>
     </form>

@@ -23,6 +23,9 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
     <style>
+         html[dir="rtl"] th{
+            text-align: right;
+         }
         @media (max-width: 768px) {
             html[dir="rtl"] .main-b {
                 margin-left: 0 !important;
@@ -55,7 +58,7 @@
 
 <body class="bg-gray-100">
 
-    <div class="flex h-screen  overflow-hidden" x-data="{ open: false }">
+    <div class="flex h-screen  overflow-x-hidden" x-data="{ open: false }">
         <!-- Sidebar Overlay (Mobile) -->
         <div class="fixed inset-0 z-40 bg-black bg-opacity-50 md:hidden" x-show="open" @click="open = false"></div>
 
@@ -63,26 +66,26 @@
         <aside
             class="bg-gray-900 text-white p-5 w-64 md:w-64 md:fixed md:top-0 md:left-0 md:h-screen transition-all duration-300 ease-in-out z-50 overflow-y-auto"
             :class="open ? 'translate-x-0' : '-translate-x-64 md:translate-x-0'">
-            <h2 class="text-xl font-bold mb-4">My Dashboard</h2>
+            <h2 class="text-xl font-bold mb-4">@lang('site.dashboard')</h2>
 
             <nav class="mt-5 space-y-3 ">
                 <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                    <i class="fas fa-home"></i> Home
+                    @lang('site.home') <i class="fas fa-home"></i>
                 </x-responsive-nav-link>
                 <x-responsive-nav-link href="{{ route('dashboard.users.index') }}" :active="request()->routeIs('dashboard.users.index')">
-                    <i class="fas fa-users"></i> Users
+                   @lang('site.users') <i class="fas fa-users"></i>
                 </x-responsive-nav-link>
 
                 <x-responsive-nav-link href="{{ route('dashboard.blogcategories.index') }}" :active="request()->routeIs('dashboard.blogcategories.index')">
-                    <i class="fas fa-list-alt"></i> Blog Category
+                    @lang('site.categories') <i class="fas fa-list-alt"></i>
                 </x-responsive-nav-link>
 
                 <x-responsive-nav-link href="{{ route('dashboard.blogs.index') }}" :active="request()->routeIs('dashboard.blogs.index')">
-                    <i class="fas fa-newspaper"></i> Blogs
+                     @lang('site.blogs') <i class="fas fa-newspaper"></i>
                 </x-responsive-nav-link>
 
                 <x-responsive-nav-link href="{{ route('profile') }}" :active="request()->routeIs('profile')">
-                    <i class="fas fa-user-cog"></i> Profile
+                    @lang('site.profile') <i class="fas fa-user-cog"></i>
                 </x-responsive-nav-link>
             </nav>
         </aside>
@@ -90,19 +93,19 @@
         <div class="container main-b flex-1 flex flex-col -ml-64 md:ml-64">
 
             <!-- Navbar -->
-            <header class="bg-white shadow p-4 flex justify-between items-center">
+            <header class="bg-blue-800 text-white  shadow p-4 flex justify-between items-center">
                 <!-- Mobile Menu Button -->
                 <button @click="open = !open" class="md:hidden text-gray-700 text-2xl">
                     <i class="fas fa-bars"></i>
                 </button>
 
                 <!-- User Actions -->
-                <div class="flex space-x-6 items-center text-lg">
-                    <span class="cursor-pointer hover:text-gray-500">
+                <div class="flex space-x-3 items-center text-lg">
+                    <span class="cursor-pointer hover:text-gray-500pr-2">
                         <i class="fas fa-bell"></i>
                     </span>
 
-                    <span class="cursor-pointer hover:text-gray-500">
+                    <span class="cursor-pointer hover:text-gray-500 pr-2">
                         <i class="fas fa-user"></i> User
                     </span>
 

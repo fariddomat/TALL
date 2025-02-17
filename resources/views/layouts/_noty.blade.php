@@ -18,7 +18,7 @@
             var that = $(this);
             e.preventDefault();
             var n = new Noty({
-                text: "Confirm Delete",
+                text: "Confirm @lang('site.delete')",
                 type: "warning",
                 killer: true,
                 buttons: [

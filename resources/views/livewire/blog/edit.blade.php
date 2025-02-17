@@ -87,7 +87,7 @@
                 <input type="checkbox" wire:model="showed" class="mr-2" />
             </div>
 
-            <button type="submit" class="bg-blue-500 text-white rounded p-2">Update Blog</button>
+            <button type="submit" class="bg-blue-500 text-white rounded p-2">@lang('site.update') @lang('site.blog')</button>
         </div>
     </form>
 </div>
