@@ -72,15 +72,15 @@
                 <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     @lang('site.home') <i class="fas fa-home"></i>
                 </x-responsive-nav-link>
-                <x-responsive-nav-link href="{{ route('dashboard.users.index') }}" :active="request()->routeIs('dashboard.users.index')">
+                <x-responsive-nav-link href="{{ route('dashboard.users.index') }}" :active="Str::startsWith(request()->route()->getName(), 'dashboard.users.')">
                    @lang('site.users') <i class="fas fa-users"></i>
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link href="{{ route('dashboard.blogcategories.index') }}" :active="request()->routeIs('dashboard.blogcategories.index')">
+                <x-responsive-nav-link href="{{ route('dashboard.blogcategories.index') }}" :active="Str::startsWith(request()->route()->getName(), 'dashboard.blogcategories.')">
                     @lang('site.categories') <i class="fas fa-list-alt"></i>
                 </x-responsive-nav-link>
 
-                <x-responsive-nav-link href="{{ route('dashboard.blogs.index') }}" :active="request()->routeIs('dashboard.blogs.index')">
+                <x-responsive-nav-link href="{{ route('dashboard.blogs.index') }}" :active="Str::startsWith(request()->route()->getName(), 'dashboard.blogs.')">
                      @lang('site.blogs') <i class="fas fa-newspaper"></i>
                 </x-responsive-nav-link>
 
