@@ -6,7 +6,7 @@
     <a href="{{ route('dashboard.users.create') }}" class="px-4 py-2 bg-blue-500 text-white rounded shadow"  wire:navigate>➕ Add User</a>
 
     <div class="overflow-x-auto mt-4">
-        <livewire:user-search />
+        <livewire:user.search />
     </div>
 </div>
 </x-app-layout>

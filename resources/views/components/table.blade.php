@@ -58,13 +58,13 @@
                                 <div class="flex justify-center space-x-2">
                                     @if ($show)
                                         <a href="{{ route($routePrefix . '.show', $row->id) }}"
-                                            class="text-blue-500 hover:text-blue-700">
+                                            class="text-blue-500 hover:text-blue-700"  wire:navigate>
                                             <i class="fas fa-eye"></i>
                                         </a>
                                     @endif
                                     @if ($edit)
                                         <a href="{{ route($routePrefix . '.edit', $row->id) }}"
-                                            class="text-yellow-500 hover:text-yellow-700">
+                                            class="text-yellow-500 hover:text-yellow-700" wire:navigate>
                                             <i class="fas fa-edit"></i>
                                         </a>
                                     @endif
@@ -97,13 +97,13 @@
                             <div class="mt-2 flex space-x-4">
                                 @if ($show)
                                     <a href="{{ route($routePrefix . '.show', $row->id) }}"
-                                        class="text-blue-500 hover:text-blue-700">
+                                        class="text-blue-500 hover:text-blue-700"  wire:navigate>
                                         <i class="fas fa-eye"></i> Show
                                     </a>
                                 @endif
                                 @if ($edit)
                                     <a href="{{ route($routePrefix . '.edit', $row->id) }}"
-                                        class="text-yellow-500 hover:text-yellow-700">
+                                        class="text-yellow-500 hover:text-yellow-700" wire:navigate>
                                         <i class="fas fa-edit"></i> Edit
                                     </a>
                                 @endif
